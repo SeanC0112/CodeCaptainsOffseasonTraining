@@ -3,8 +3,6 @@ package frc.robot;
 import static edu.wpi.first.wpilibj2.command.Commands.*;
 import static frc.robot.RobotCommands.*;
 import static frc.robot.RobotCommands.ScoreState.Dealgify;
-import static frc.robot.subsystems.elevator.ElevatorConstants.ElevatorHeight.L2;
-import static frc.robot.subsystems.elevator.ElevatorConstants.ElevatorHeight.L3;
 
 import choreo.auto.AutoFactory;
 import choreo.auto.AutoRoutine;
@@ -15,10 +13,7 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import frc.robot.subsystems.carriage.Carriage;
 import frc.robot.subsystems.drive.Drive;
-import frc.robot.subsystems.elevator.Elevator;
-import frc.robot.subsystems.funnel.Funnel;
 import frc.robot.subsystems.intake.Intake;
 import frc.robot.util.AllianceFlipUtil;
 import frc.robot.util.AlwaysLoggedTunableNumber;
@@ -29,10 +24,7 @@ import org.littletonrobotics.junction.networktables.LoggedDashboardChooser;
 
 public class Autos {
   private final Drive drive;
-  private final Carriage carriage;
-  private final Elevator elevator;
   private final Intake intake;
-  private final Funnel funnel;
   private final PoseManager poseManager;
 
   private final AutoFactory factory;
