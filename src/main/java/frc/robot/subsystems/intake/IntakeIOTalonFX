@@ -1,0 +1,36 @@
+package frc.robot.subsystems.intake;
+
+import com.ctre.phoenix6.hardware.TalonFX;
+
+public class IntakeIOTalonFX implements IntakeIO {
+    private final TalonFX rollerFront = new TalonFX(0); //TODO add device ID
+    private final TalonFX rollerBack = new TalonFX(1);
+
+    public IntakeIOTalonFX(IntakeIOInputs inputs) {
+    }
+
+    @Override
+    private void updateInputs() {
+        rollersFrontAppliedVolts = rollerFront.getMotorVoltage().getValueAsDouble();
+        rollersFrontCurrentAmps = rollerFront.getSupplyCurrent().getValueAsDouble();
+
+        rollersBackAppliedVolts = rollerBack.getMotorVoltage().getValueAsDouble();
+        rollersBackCurrentAmps = rollerBack.getSupplyCurrent().getValueAsDouble();
+    }
+
+    @Override
+    private void runFrontRollers(double volts) {
+        rollerFront.setVoltage(volts);
+    }
+
+    @Override
+    private void runBackRollers(double volts) {
+        rollerBack.setVoltage(volts);
+    }
+    
+    @Override
+    private void runRollers(double volts) {
+        rollerFront.setVoltage(volts);
+        rollerBack.setVoltage(volts);
+    }
+}
