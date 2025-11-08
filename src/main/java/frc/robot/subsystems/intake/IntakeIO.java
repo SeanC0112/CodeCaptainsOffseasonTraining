@@ -14,11 +14,9 @@ public interface IntakeIO {
 
   default void updateInputs(IntakeIOInputs inputs) {}
 
+  default void runFrontRollers(double volts) {}
+
+  default void runBackRollers(double volts) {}
+
   default void runRollers(double volts) {}
-
-  default void runPivot(double volts) {}
-
-  default void setPivotPosition(double setpointDeg) {}
-
-  default void resetEncoder(double position) {}
 }
