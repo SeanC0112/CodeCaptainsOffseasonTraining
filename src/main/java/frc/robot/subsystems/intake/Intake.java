@@ -29,9 +29,23 @@ public class Intake extends SubsystemBase {
     Logger.processInputs("Intake", inputs);
   }
 
-  public Command Intake() {
-    return run(null)
+  public Command IntakeCmd() {
+    return run(() -> runRollers(rollersSpeedIn.get())).finallyDo(() -> runRollers(0));
   }
 
-  private void run
+  public Command EjectCmd() {
+    return run(() -> runRollers(rollersSpeedOut.get())).finallyDo(() -> runRollers(0));
+  }
+
+  private void runFrontRollers(double volts) {
+    io.runFrontRollers(volts);
+  }
+
+  private void runBackRollers(double volts) {
+    io.runBackRollers(volts);
+  }
+
+  private void runRollers(double volts) {
+    io.runRollers(volts);
+  }
 }

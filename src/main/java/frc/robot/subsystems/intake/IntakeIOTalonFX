@@ -35,20 +35,4 @@ public class IntakeIOTalonFX implements IntakeIO {
         rollersFront.setControl(new VoltageOut(volts));
         rollersBack.setControl(new VoltageOut(volts));
     }
-
-    @Override
-    public void stopFrontRollers() {
-      rollersFront.setControl(new NeutralOut())
-    }
-  
-    @Override
-    public void stopBackRollers() {
-      rollersBack.setControl(new NeutralOut());
-    }
-  
-    @Override
-    public void stopRollers() {
-      rollersFront.setControl(new NeutralOut());
-      rollersBack.setControl(new NeutralOut());
-    }
 }

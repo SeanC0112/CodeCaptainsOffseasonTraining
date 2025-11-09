@@ -38,20 +38,4 @@ public class IntakeIOSim implements IntakeIO {
     rollersBackAppliedVolts = volts;
     rollersFrontAppliedVolts = volts;
   }
-
-  @Override
-  public void stopFrontRollers() {
-    rollersFrontAppliedVolts = 0;
-  }
-
-  @Override
-  public void stopBackRollers() {
-    rollersBackAppliedVolts = 0;
-  }
-
-  @Override
-  public void stopRollers() {
-    rollersFrontAppliedVolts = 0;
-    rollersBackAppliedVolts = 0;
-  }
 }
