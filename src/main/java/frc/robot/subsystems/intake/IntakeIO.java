@@ -19,4 +19,10 @@ public interface IntakeIO {
   default void runBackRollers(double volts) {}
 
   default void runRollers(double volts) {}
+
+  default void stopFrontRollers() {}
+
+  default void stopBackRollers() {}
+
+  default void stopRollers() {}
 }

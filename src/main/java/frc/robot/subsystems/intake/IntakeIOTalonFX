@@ -2,10 +2,11 @@ package frc.robot.subsystems.intake;
 
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.controls.VoltageOut;
+import com.ctre.phoenix6.controls.NeutralOut;
 
 public class IntakeIOTalonFX implements IntakeIO {
-    private final TalonFX rollerFront = new TalonFX(0); //TODO add device ID
-    private final TalonFX rollerBack = new TalonFX(1);
+    private final TalonFX rollersFront = new TalonFX(0); //TODO add device ID
+    private final TalonFX rollersBack = new TalonFX(1);
 
     public IntakeIOTalonFX(IntakeIOInputs inputs) {
     }
@@ -21,17 +22,33 @@ public class IntakeIOTalonFX implements IntakeIO {
 
     @Override
     private void runFrontRollers(double volts) {
-        rollerFront.setControl(new VoltageOut(volts));
+        rollersFront.setControl(new VoltageOut(volts));
     }
 
     @Override
     private void runBackRollers(double volts) {
-        rollerBack.setControl(new VoltageOut(volts));
+        rollersBack.setControl(new VoltageOut(volts));
     }
     
     @Override
     private void runRollers(double volts) {
-        rollerFront.setControl(new VoltageOut(volts));
-        rollerBack.setControl(new VoltageOut(volts));
+        rollersFront.setControl(new VoltageOut(volts));
+        rollersBack.setControl(new VoltageOut(volts));
+    }
+
+    @Override
+    public void stopFrontRollers() {
+      rollersFront.setControl(new NeutralOut())
+    }
+  
+    @Override
+    public void stopBackRollers() {
+      rollersBack.setControl(new NeutralOut());
+    }
+  
+    @Override
+    public void stopRollers() {
+      rollersFront.setControl(new NeutralOut());
+      rollersBack.setControl(new NeutralOut());
     }
 }
