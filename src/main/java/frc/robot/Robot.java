@@ -362,13 +362,13 @@ public class Robot extends LoggedRobot {
     boolean testDrive = false;
     Trigger intakeTrigger = driver.rightBumper();
 
-    // Setup rumble
-    new Trigger(() -> intake.GPHeld())
-        .onTrue(
-            runEnd(
-                    () -> driver.setRumble(RumbleType.kBothRumble, 0.5),
-                    () -> driver.setRumble(RumbleType.kBothRumble, 0.0))
-                .withTimeout(.5));
+    // // Setup rumble
+    // new Trigger(() -> intake.GPHeld())
+    //     .onTrue(
+    //         runEnd(
+    //                 () -> driver.setRumble(RumbleType.kBothRumble, 0.5),
+    //                 () -> driver.setRumble(RumbleType.kBothRumble, 0.0))
+    //             .withTimeout(.5));
 
     // Default cmds
     if (testDrive) {

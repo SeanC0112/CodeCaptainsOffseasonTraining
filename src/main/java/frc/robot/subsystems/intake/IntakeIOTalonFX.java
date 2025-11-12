@@ -12,26 +12,26 @@ public class IntakeIOTalonFX implements IntakeIO {
     }
 
     @Override
-    private void updateInputs() {
-        rollersFrontAppliedVolts = rollerFront.getMotorVoltage().getValueAsDouble();
-        rollersFrontCurrentAmps = rollerFront.getSupplyCurrent().getValueAsDouble();
+    public void updateInputs(IntakeIOInputs inputs) {
+        inputs.rollersFrontAppliedVolts = rollersFront.getMotorVoltage().getValueAsDouble();
+        inputs.rollersFrontCurrentAmps = rollersFront.getSupplyCurrent().getValueAsDouble();
 
-        rollersBackAppliedVolts = rollerBack.getMotorVoltage().getValueAsDouble();
-        rollersBackCurrentAmps = rollerBack.getSupplyCurrent().getValueAsDouble();
+        inputs.rollersBackAppliedVolts = rollersBack.getMotorVoltage().getValueAsDouble();
+        inputs.rollersBackCurrentAmps = rollersBack.getSupplyCurrent().getValueAsDouble();
     }
 
     @Override
-    private void runFrontRollers(double volts) {
+    public void runFrontRollers(double volts) {
         rollersFront.setControl(new VoltageOut(volts));
     }
 
     @Override
-    private void runBackRollers(double volts) {
+    public void runBackRollers(double volts) {
         rollersBack.setControl(new VoltageOut(volts));
     }
     
     @Override
-    private void runRollers(double volts) {
+    public void runRollers(double volts) {
         rollersFront.setControl(new VoltageOut(volts));
         rollersBack.setControl(new VoltageOut(volts));
     }
